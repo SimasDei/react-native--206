@@ -1,6 +1,6 @@
 import { IProduct } from '../types';
 
-class Product implements IProduct {
+export class Product implements IProduct {
   id: IProduct['id'];
   ownerId: IProduct['ownerId'];
   title: IProduct['title'];

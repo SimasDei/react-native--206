@@ -6,3 +6,8 @@ export interface IProduct {
   description: string;
   price: number;
 }
+
+export interface IProductsState {
+  availableProducts: IProduct[];
+  userProducts: IProduct[];
+}
