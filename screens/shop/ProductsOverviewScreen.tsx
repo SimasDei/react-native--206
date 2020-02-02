@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
 
-const ProductsOverviewScreen = () => {
-  return (
-    <View>
-      <Text>Product screen</Text>
-    </View>
-  );
+import { IRootState } from '../../types';
+
+export const ProductsOverviewScreen = () => {
+  const products = useSelector((state: IRootState) => state.products.availableProducts);
+
+  return <FlatList data={products} renderItem={({ item }) => <Text>{item.title}</Text>} />;
 };
 
 export default ProductsOverviewScreen;

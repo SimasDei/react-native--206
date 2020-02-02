@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const CartScreen = () => {
+export const CartScreen = () => {
   return (
     <View>
       <Text>Cart screen</Text>
