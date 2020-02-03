@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import { IRootState } from '../../types';
 import { COLORS } from '../../constants';
 
+import { ProductItem } from '../../components/shop';
+
 export const ProductsOverviewScreen = () => {
   const products = useSelector((state: IRootState) => state.products.availableProducts);
 
@@ -12,7 +14,7 @@ export const ProductsOverviewScreen = () => {
     <FlatList
       style={styles.container}
       data={products}
-      renderItem={({ item }) => <Text style={styles.productText}>{item.title}</Text>}
+      renderItem={({ item }) => <ProductItem product={item} />}
     />
   );
 };
