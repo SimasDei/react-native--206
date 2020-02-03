@@ -14,11 +14,13 @@ export const ProductItem = ({ product, onViewDetail, onAddToCart }: Props) => {
   return (
     <View style={styles.productContainer}>
       <Image style={styles.productImage} source={{ uri: product.imageUrl }} />
-      <Text style={styles.productTitle}>{product.title}</Text>
-      <Text style={styles.productPrice}>{product.price.toFixed(2)}💲</Text>
+      <View style={styles.productDetails}>
+        <Text style={styles.productTitle}>{product.title}</Text>
+        <Text style={styles.productPrice}>{product.price.toFixed(2)}💲</Text>
+      </View>
       <View style={styles.productActions}>
-        <Button title={'View Details'} onPress={onViewDetail} />
-        <Button title={'Add to Cart'} onPress={onAddToCart} />
+        <Button color={COLORS.primary} title={'View Details'} onPress={onViewDetail} />
+        <Button color={COLORS.primary} title={'Add to Cart'} onPress={onAddToCart} />
       </View>
     </View>
   );
@@ -37,24 +39,30 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   productImage: {
+    width: '100%',
     height: '60%',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+  },
+  productDetails: {
+    alignItems: 'center',
+    height: '15%',
+    padding: 10,
   },
   productTitle: {
     color: '#fff',
     fontSize: 18,
     marginVertical: 4,
-    paddingHorizontal: 8,
   },
   productPrice: {
     fontSize: 14,
     color: COLORS.accent,
-    paddingHorizontal: 8,
   },
   productActions: {
+    height: '25%',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    marginTop: 8,
   },
 });
 
