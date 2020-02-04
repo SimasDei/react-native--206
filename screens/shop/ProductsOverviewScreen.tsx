@@ -7,14 +7,21 @@ import { COLORS } from '../../constants';
 
 import { ProductItem } from '../../components/shop';
 
-export const ProductsOverviewScreen = () => {
+export const ProductsOverviewScreen = props => {
   const products = useSelector((state: IRootState) => state.products.availableProducts);
+  const {
+    navigation: { navigate },
+  } = props;
+
+  const onViewDetail = () => {
+    navigate({ routeName: 'ProductDetail' });
+  };
 
   return (
     <FlatList
       style={styles.container}
       data={products}
-      renderItem={({ item }) => <ProductItem product={item} />}
+      renderItem={({ item }) => <ProductItem product={item} onViewDetail={onViewDetail} />}
     />
   );
 };

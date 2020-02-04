@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, View, Text, Image, Button, StyleSheet } from 'react-native';
 
 export const ProductDetailScreen = () => {
   return (
@@ -8,5 +8,7 @@ export const ProductDetailScreen = () => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({});
 
 export default ProductDetailScreen;

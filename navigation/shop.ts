@@ -13,6 +13,9 @@ const screens = {
   ProductsOverview: {
     screen: ProductsOverviewScreen,
   },
+  ProductDetail: {
+    screen: ProductDetailScreen,
+  },
 };
 
 const config = {

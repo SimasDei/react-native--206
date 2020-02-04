@@ -6,8 +6,8 @@ import { COLORS } from '../../constants';
 
 type Props = {
   product: IProduct;
-  onViewDetail: () => void;
-  onAddToCart: () => void;
+  onViewDetail?: () => void;
+  onAddToCart?: () => void;
 };
 
 export const ProductItem = ({ product, onViewDetail, onAddToCart }: Props) => {
