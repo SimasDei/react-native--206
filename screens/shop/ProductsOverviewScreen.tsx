@@ -13,15 +13,17 @@ export const ProductsOverviewScreen = props => {
     navigation: { navigate },
   } = props;
 
-  const onViewDetail = () => {
-    navigate({ routeName: 'ProductDetail' });
+  const onViewDetail = productId => {
+    navigate({ routeName: 'ProductDetail', params: { productId } });
   };
 
   return (
     <FlatList
       style={styles.container}
       data={products}
-      renderItem={({ item }) => <ProductItem product={item} onViewDetail={onViewDetail} />}
+      renderItem={({ item }) => (
+        <ProductItem product={item} onViewDetail={() => onViewDetail(item.id)} />
+      )}
     />
   );
 };
