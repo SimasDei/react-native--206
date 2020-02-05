@@ -14,9 +14,13 @@ export const ProductDetailScreen = props => {
   );
 
   return (
-    <View>
+    <ScrollView>
+      <View>
+        <Image source={{ uri: selectedProduct.imageUrl }} />
+      </View>
       <Text>{selectedProduct.title}</Text>
-    </View>
+      <Button title={'Add to Cart'} onPress={() => {}} />
+    </ScrollView>
   );
 };
 
