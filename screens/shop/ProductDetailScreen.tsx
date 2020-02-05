@@ -14,16 +14,21 @@ export const ProductDetailScreen = props => {
   );
 
   return (
-    <ScrollView>
-      <View>
-        <Image source={{ uri: selectedProduct.imageUrl }} />
+    <ScrollView style={styles.productContainer}>
+      <View style={styles.productImageContainer}>
+        <Image style={styles.productImage} source={{ uri: selectedProduct.imageUrl }} />
       </View>
-      <Text>{selectedProduct.title}</Text>
+      <Text style={styles.productTitle}>{selectedProduct.title}</Text>
       <Button title={'Add to Cart'} onPress={() => {}} />
     </ScrollView>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  productContainer: {},
+  productImageContainer: {},
+  productImage: {},
+  productTitle: {},
+});
 
 export default ProductDetailScreen;
