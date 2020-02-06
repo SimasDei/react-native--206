@@ -1,1 +1,8 @@
-"# react-native--206" 
+"# react-native--206"
+
+### stack used
+expo
+react-navigation
+redux
+redux-saga
+typescript
