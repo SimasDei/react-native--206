@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 
-import { IRootState } from '../../types';
+import { IRootState, IProduct } from '../../types';
 import { COLORS } from '../../constants';
 
 import { ProductItem } from '../../components/shop';
@@ -13,8 +13,12 @@ export const ProductsOverviewScreen = props => {
     navigation: { navigate },
   } = props;
 
-  const onViewDetail = productId => {
-    navigate({ routeName: 'ProductDetail', params: { productId } });
+  const onViewDetail = (product: IProduct) => {
+    const params = {
+      productId: product.id,
+      productTitle: product.title,
+    };
+    navigate({ routeName: 'ProductDetail', params });
   };
 
   return (
@@ -22,7 +26,7 @@ export const ProductsOverviewScreen = props => {
       style={styles.container}
       data={products}
       renderItem={({ item }) => (
-        <ProductItem product={item} onViewDetail={() => onViewDetail(item.id)} />
+        <ProductItem product={item} onViewDetail={() => onViewDetail(item)} />
       )}
     />
   );

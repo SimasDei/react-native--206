@@ -3,6 +3,7 @@ import { ScrollView, View, Text, Image, Button, StyleSheet } from 'react-native'
 import { useSelector } from 'react-redux';
 
 import { IRootState } from '../../types';
+import { COLORS } from '../../constants';
 
 export const ProductDetailScreen = props => {
   const {
@@ -24,11 +25,20 @@ export const ProductDetailScreen = props => {
   );
 };
 
+ProductDetailScreen.navigationOptions = ({ navigation: { getParam } }) => ({
+  headerTitle: getParam('productTitle'),
+});
+
 const styles = StyleSheet.create({
-  productContainer: {},
+  productContainer: {
+    flex: 1,
+    backgroundColor: COLORS.primaryDark,
+  },
   productImageContainer: {},
   productImage: {},
-  productTitle: {},
+  productTitle: {
+    color: COLORS.accent,
+  },
 });
 
 export default ProductDetailScreen;

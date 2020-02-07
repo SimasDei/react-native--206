@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, Button, StyleSheet } from 'react-native';
+import { View, Text, Image, Button, TouchableOpacity, StyleSheet } from 'react-native';
 
 import { IProduct } from '../../types';
 import { COLORS } from '../../constants';
@@ -12,17 +12,19 @@ type Props = {
 
 export const ProductItem = ({ product, onViewDetail, onAddToCart }: Props) => {
   return (
-    <View style={styles.productContainer}>
-      <Image style={styles.productImage} source={{ uri: product.imageUrl }} />
-      <View style={styles.productDetails}>
-        <Text style={styles.productTitle}>{product.title}</Text>
-        <Text style={styles.productPrice}>{product.price.toFixed(2)}💲</Text>
+    <TouchableOpacity onPress={onViewDetail}>
+      <View style={styles.productContainer}>
+        <Image style={styles.productImage} source={{ uri: product.imageUrl }} />
+        <View style={styles.productDetails}>
+          <Text style={styles.productTitle}>{product.title}</Text>
+          <Text style={styles.productPrice}>{product.price.toFixed(2)}💲</Text>
+        </View>
+        <View style={styles.productActions}>
+          <Button color={COLORS.primary} title={'View Details'} onPress={onViewDetail} />
+          <Button color={COLORS.primary} title={'Add to Cart'} onPress={onAddToCart} />
+        </View>
       </View>
-      <View style={styles.productActions}>
-        <Button color={COLORS.primary} title={'View Details'} onPress={onViewDetail} />
-        <Button color={COLORS.primary} title={'Add to Cart'} onPress={onAddToCart} />
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
