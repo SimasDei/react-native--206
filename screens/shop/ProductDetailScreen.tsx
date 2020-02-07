@@ -19,8 +19,11 @@ export const ProductDetailScreen = props => {
       <View style={styles.productImageContainer}>
         <Image style={styles.productImage} source={{ uri: selectedProduct.imageUrl }} />
       </View>
-      <Text style={styles.productTitle}>{selectedProduct.title}</Text>
-      <Button title={'Add to Cart'} onPress={() => {}} />
+      <View style={styles.productButton}>
+        <Button color={COLORS.primary} title={'Add to Cart'} onPress={() => {}} />
+      </View>
+      <Text style={styles.productPrice}>{selectedProduct.price.toFixed(2)} 💲</Text>
+      <Text style={styles.productDescription}>{selectedProduct.description}</Text>
     </ScrollView>
   );
 };
@@ -34,10 +37,29 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.primaryDark,
   },
-  productImageContainer: {},
-  productImage: {},
-  productTitle: {
+  productImageContainer: {
+    height: 300,
+    width: '100%',
+  },
+  productImage: {
+    flex: 1,
+  },
+  productDescription: {
     color: COLORS.accent,
+    fontSize: 14,
+    textAlign: 'center',
+    marginTop: 12,
+  },
+  productPrice: {
+    color: COLORS.accent,
+    fontSize: 20,
+    textAlign: 'center',
+  },
+  productButton: {
+    marginVertical: 10,
+    alignItems: 'center',
+    paddingVertical: 4,
+    paddingHorizontal: 8,
   },
 });
 
